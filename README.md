@@ -1,129 +1,80 @@
-# NGS Variant Calling Pipeline
+NGS Variant Calling Pipeline
 
- 
+An educational bioinformatics project demonstrating an alignment-based next-generation sequencing (NGS) workflow for quality control, read trimming, alignment, variant calling, and functional annotation.
 
-## Overview
+Overview
 
- 
+This project documents a paired-end sequencing analysis workflow using commonly used bioinformatics tools. The pipeline processes FASTQ reads, aligns them to a reference genome, identifies candidate genetic variants, and annotates their potential functional consequences.
 
-This project documents a Next-Generation Sequencing (NGS)
+Workflow
 
-workflow for quality control, read trimming, reference
+Quality control â€” FastQC
+Read trimming â€” Trimmomatic
+Read alignment â€” BWA-MEM
+Sorting and indexing â€” SAMtools
+Duplicate marking â€” Picard MarkDuplicates
+Variant calling â€” GATK HaplotypeCaller
+Functional annotation â€” SnpEff
+Tools Used
 
-alignment, variant calling and functional annotation.
 
- 
 
-## Workflow
+Tool Purpose
 
- 
+FastQC Sequencing quality assessment
 
-1. Quality control using FastQC
+Trimmomatic Adapter and quality trimming
 
-2. Read trimming using Trimmomatic
+BWA-MEM Read alignment
 
-3. Read alignment using BWA-MEM
+SAMtools BAM sorting and indexing
 
-4. Sorting and indexing using SAMtools
+Picard Duplicate marking
 
-5. Duplicate marking using Picard
+GATK HaplotypeCaller Variant calling
 
-6. Variant calling using GATK HaplotypeCaller
+SnpEff Functional variant annotation
 
-7. Functional annotation using SnpEff
 
- 
 
-## Tools
 
- 
+Repository Structure
 
-- FastQC
+scripts/ — Individual pipeline scripts
+config/ — Example configuration
+docs/ — Workflow, reference preparation, data preparation, and software-version documentation
+Input Data
 
-- Trimmomatic
+The documented example dataset is paired-end sequencing data associated with SRA accession SRR062634.
 
-- BWA
+Raw FASTQ files and reference genome files are not included in this repository. See docs/data_preparation.md for input download instructions.
 
-- SAMtools
+Expected Outputs
 
-- Picard
+The workflow is designed to produce:
 
-- GATK
+Quality-control reports
 
-- SnpEff
+Trimmed FASTQ reads
+Sorted and indexed BAM files
+VCF files containing candidate variants
+Annotated VCF files
+Actual outputs depend on the input data, reference genome, software versions, and configuration.
 
- 
+Reproducibility
 
-## Repository Structure
+The repository includes individual scripts and supporting documentation. Software versions, reference assembly details, and annotation database compatibility still need to be confirmed.
 
- 
 
-- scripts/ : Individual pipeline scripts
 
-- docs/ : Workflow documentation
 
-- config/ : Example configuration files
+The complete scripted workflow has not yet been independently validated end to end.
 
- 
+See docs/workflow.md and docs/reference_preparation.md for further details.
 
-## Input Data
+Disclaimer
 
- 
-
-The workflow uses paired-end FASTQ sequencing reads
-
-and a compatible reference genome.
-
- 
-
-Raw sequencing reads and reference genome files are
-
-not included in this repository.
-## Output
-
- 
-
-The pipeline can generate:
-
- 
-
-- Quality-control reports
-
-- Trimmed sequencing reads
-
-- Aligned BAM files
-
-- Variant call format (VCF) files
-
-- Annotated variant files
-
- 
-
-## Reproducibility
-
- 
-
-Software versions, reference genome assembly,
-
-database versions and command parameters should be
-
-documented to support reproducible analysis.
-
- 
-
-## Disclaimer
-
- 
-
-This repository is an educational bioinformatics project.
-
-Variant annotations are computational predictions and
-
-are not, by themselves, clinical diagnoses.
-
-
-
-
+This is an educational bioinformatics project. Computational variant calls and annotations require appropriate quality assessment and expert interpretation; they are not, by themselves, clinical diagnoses.
 
 
 
